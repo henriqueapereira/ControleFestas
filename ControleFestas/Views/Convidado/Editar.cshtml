@@ -1,0 +1,48 @@
+﻿@model ConvidadoModel
+
+<h1>Lista de Convidados - Editar</h1>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="well">
+                @*
+                @if (!string.IsNullOrEmpty(ViewBag.Mensagem))
+                {
+                <div class="alert alert-danger">@ViewBag.Mensagem</div>
+                }
+                *@
+                <form method="post" action="/Convidado/Novo">
+
+                    <div class="form-group">
+                        <label>Nome:</label>
+                        <input type="text" name="nome" value="@Model.Nome" class="form-control w-50" size="30" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="text" name="email" value="@Model.Email" class="form-control w-50" size="30" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Telefone:</label>
+                        <input type="text" name="telefone" value="@Model.Telefone" class="form-control w-25" size="30" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Idade:</label>
+                        <input type="text" name="idade" value="@Model.Idade" class="form-control w-25" size="30" />
+                    </div>
+
+
+
+                    <hr class="hr" />
+                    <input type="submit" value="Enviar" />
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

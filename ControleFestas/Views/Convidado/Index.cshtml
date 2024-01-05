@@ -1,0 +1,39 @@
+﻿@model IList<ConvidadoModel>
+
+<h1>Lista de Convidados</h1>
+
+
+<p class="toolbar">
+    <a href="/Convidado/Novo" class="create btn btn-dark">Novo convidado</a>
+</p>
+
+<table class="table table-striped" border="1" cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+            <th data-field="id">Id</th>
+            <th data-field="nome">Nome</th>
+            <th data-field="email">Email</th>
+            <th data-field="telefone">Telefone</th>
+            <th data-field="idade">Idade</th>          
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td data-field="id">@item.ConvidadoId</td>
+                <td data-field="name">@item.Nome</td>
+                <td data-field="email">@item.Email</td>
+                <td data-field="telefone">@item.Telefone</td>
+                <td class="actions" width="220">
+                    <a href="/Convidado/Editar/@item.ConvidadoId">Editar</a>
+                    <a href="#">Remover</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+

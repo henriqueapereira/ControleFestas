@@ -1,0 +1,45 @@
+﻿@model IList<EventoModel>
+
+<h1>Eventos</h1>
+
+<p class="toolbar">
+    <a href="/Evento/Novo"class="create btn btn-dark">Novo evento</a>
+</p>
+
+<table class="table table-striped" border="1" cellspacing="0" cellpadding="0">
+<thead>
+    <tr>
+        <th data-field="id">Id</th>
+        <th data-field="titulo">Titulo</th>
+        <th data-field="responsavel">Responsável</th>
+        <th data-field="promotor">Promotor</th>
+        <th data-field="cidade">Cidade</th>
+        <th data-field="data">Data</th>
+        <th class="convidados" width="110">Convidados</th>
+        <th class="actions" width="220">Ações</th>
+    </tr>
+</thead>
+<tbody>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td data-field="id">@item.EventoId</td>
+            <td data-field="name">@item.Titulo</td>
+            <td data-field="responsavel">@item.Responsavel</td>
+            <td data-field="promotor">@item.Promotor</td>
+            <td data-field="cidade">@item.Cidade</td>
+            <td data-field="data">@item.Data</td>
+            <td class="convidados" width="110">
+                <a href="/Convidado/Index">Ver lista</a>
+            </td>
+            <td class="actions" width="220">
+                <a href="#">Detalhe</a>
+                <a href="/Evento/Editar/@item.EventoId">Editar</a>
+                <a href="#">Remover</a>
+            </td>
+        </tr>
+    }
+
+</tbody>
+</table>
