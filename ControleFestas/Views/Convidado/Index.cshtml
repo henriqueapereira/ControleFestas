@@ -3,6 +3,11 @@
 <h1>Lista de Convidados</h1>
 
 
+@if (!string.IsNullOrEmpty((String)TempData["Mensagem"]))
+{
+    <div class="alert alert-warning" role="alert">@TempData["Mensagem"]</div>
+}
+
 <p class="toolbar">
     <a href="/Convidado/Novo" class="create btn btn-dark">Novo convidado</a>
 </p>

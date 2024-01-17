@@ -19,8 +19,7 @@ namespace ControleFestas.Controllers
         }
 
 
-        /*---------------------------------------------------------------------*/
-        //Cadastra um convidado
+        //Envia Cadastrar um convidado
         [HttpPost]
         public IActionResult Novo(ConvidadoModel convidadoModel)
         {
@@ -38,7 +37,6 @@ namespace ControleFestas.Controllers
         }
 
 
-        /*---------------------------------------------------------------------*/
         //ABRE O EDITAR
         [HttpGet]
         public IActionResult Editar(int id)
@@ -57,7 +55,6 @@ namespace ControleFestas.Controllers
         }
 
 
-        /*---------------------------------------------------------------------*/
         //ENVIA O EDITAR
         [HttpPost]
         public IActionResult Editar(ConvidadoModel convidadoModel)
@@ -75,8 +72,6 @@ namespace ControleFestas.Controllers
         }
 
 
-
-        /*---------------------------------------------------------------------*/
         //Simulando o acesso ao banco de dados para obter uma lista de convidados
         private IList<ConvidadoModel> ListarConvidadosMock()
         {

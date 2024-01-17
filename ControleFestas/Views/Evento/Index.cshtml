@@ -2,6 +2,11 @@
 
 <h1>Eventos</h1>
 
+@if (!string.IsNullOrEmpty((String)TempData["Mensagem"]))
+{
+    <div class="alert alert-warning" role="alert">@TempData["Mensagem"]</div>
+}
+
 <p class="toolbar">
     <a href="/Evento/Novo"class="create btn btn-dark">Novo evento</a>
 </p>

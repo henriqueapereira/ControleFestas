@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Henrique A Pereira\\Documents\\Portifolio\\ControleFestas\\ControleFestas\\ControleFestas.csproj": {}
+    "C:\\Users\\Henrique A Pereira\\Documents\\Programação\\Portifolio\\ControleFestas\\ControleFestas\\ControleFestas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Henrique A Pereira\\Documents\\Portifolio\\ControleFestas\\ControleFestas\\ControleFestas.csproj": {
+    "C:\\Users\\Henrique A Pereira\\Documents\\Programação\\Portifolio\\ControleFestas\\ControleFestas\\ControleFestas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Henrique A Pereira\\Documents\\Portifolio\\ControleFestas\\ControleFestas\\ControleFestas.csproj",
+        "projectUniqueName": "C:\\Users\\Henrique A Pereira\\Documents\\Programação\\Portifolio\\ControleFestas\\ControleFestas\\ControleFestas.csproj",
         "projectName": "ControleFestas",
-        "projectPath": "C:\\Users\\Henrique A Pereira\\Documents\\Portifolio\\ControleFestas\\ControleFestas\\ControleFestas.csproj",
+        "projectPath": "C:\\Users\\Henrique A Pereira\\Documents\\Programação\\Portifolio\\ControleFestas\\ControleFestas\\ControleFestas.csproj",
         "packagesPath": "C:\\Users\\Henrique A Pereira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Henrique A Pereira\\Documents\\Portifolio\\ControleFestas\\ControleFestas\\obj\\",
+        "outputPath": "C:\\Users\\Henrique A Pereira\\Documents\\Programação\\Portifolio\\ControleFestas\\ControleFestas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Henrique A Pereira\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,22 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

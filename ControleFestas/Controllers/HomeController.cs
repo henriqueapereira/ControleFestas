@@ -30,3 +30,6 @@ namespace ControleFestas.Controllers
         }
     }
 }
+
+//FALTA CRIAR AS MIGRATIONS
+//CRIAR O REPOSITORY ***

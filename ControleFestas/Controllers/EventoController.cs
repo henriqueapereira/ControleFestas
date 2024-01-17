@@ -1,18 +1,28 @@
-﻿using ControleFestas.Models;
+﻿using ControleFestas.Data;
+using ControleFestas.Models;
+using ControleFestas.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControleFestas.Controllers
 {
     public class EventoController : Controller
     {
+        //criar os métodos para poder acessar o eventoRepository
+        private readonly EventoRepository _eventoRepository;
+
+        public EventoController(DataContext dataContext)
+        {
+            _eventoRepository = new EventoRepository(dataContext);
+        }
+
+        //INDEX - Mostra todos os eventos cadastrados
         public IActionResult Index()
         {
-            var eventos = ListarEventosMock();
+            var eventos = _eventoRepository.FindAll();
             return View(eventos);
         }
 
 
-        /*---------------------------------------------------------------------*/
         //Abre a tela para cadastrar um novo evento
         [HttpGet]
         public IActionResult Novo()
@@ -21,8 +31,7 @@ namespace ControleFestas.Controllers
         }
 
 
-        /*---------------------------------------------------------------------*/
-        //Cadastra um novo evento
+        //Envia o Cadastra um novo evento
         [HttpPost]
         public IActionResult Novo(EventoModel eventoModel)
         {
@@ -33,13 +42,13 @@ namespace ControleFestas.Controllers
             }
             else
             {
+                TempData["Mensagem"] = $"Evento {eventoModel.Titulo} cadastrado com sucesso";
                 // INSERT
-                return View("Sucesso");
+                return RedirectToAction("Index");
             }
         }
 
 
-        /*---------------------------------------------------------------------*/
         //ABRE O EDITAR
         [HttpGet]
         public IActionResult Editar(int id)
@@ -50,7 +59,7 @@ namespace ControleFestas.Controllers
                 EventoId = 1,
                 Titulo = "Aniversario 15 anos Bianca",
                 Responsavel = "Juliana (mãe)",
-                Promotor = "Andreia",
+                //Promotor = "Andreia",
                 Cidade = "Piracicaba",
                 Data = DateTime.Now,
             };
@@ -59,7 +68,6 @@ namespace ControleFestas.Controllers
         }
 
 
-        /*---------------------------------------------------------------------*/
         //ENVIA O EDITAR
         [HttpPost]
         public IActionResult Editar(EventoModel eventoModel)
@@ -76,7 +84,16 @@ namespace ControleFestas.Controllers
             }
         }
 
-        /*---------------------------------------------------------------------*/
+        //Abre o detalhe
+        /*
+         [HttpGet]
+        public IActionResult Detalhe(int id)
+        {
+            //SELECT * FROM produto WHERE produtoid = id
+            EventoModel evento = _eventoRepository.FindById(id);
+            return View(evento);
+        }
+        */
         //Simulando o acesso ao banco de dados para obter uma lista de eventos
         private IList<EventoModel> ListarEventosMock()
         {
@@ -87,7 +104,7 @@ namespace ControleFestas.Controllers
                     EventoId = 1,
                     Titulo = "Aniversario 15 anos Bianca",
                     Responsavel = "Juliana (mãe)",
-                    Promotor = "Andreia",
+                   // Promotor = "Andreia",
                     Cidade = "Piracicaba",
                     Data = DateTime.Now,
 
@@ -97,7 +114,7 @@ namespace ControleFestas.Controllers
                     EventoId = 2,
                     Titulo = "Casamento Jose e Ana",
                     Responsavel = "Ana",
-                    Promotor = "Cristina",
+                    //Promotor = "Cristina",
                     Cidade = "Americana",
                     Data = DateTime.Now,
 
@@ -107,7 +124,7 @@ namespace ControleFestas.Controllers
                     EventoId = 3,
                     Titulo = "Aniversario 25 anos Guilherme",
                     Responsavel = "Guilherme",
-                    Promotor = "Jorge",
+                    //Promotor = "Jorge",
                     Cidade = "Campinas",
                     Data = DateTime.Now,
 
